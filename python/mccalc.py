@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import readline
 
 def lv2dexp(lv): # lv-1 to lv
@@ -38,9 +39,9 @@ def expr2lvs(expr:str): # ( a b )
     expr, p, lvs = list(expr.split()), 0, []
     # print(expr)
     def dfs(s): # 自己理解的自动机: s个状态, 每次调用处理至少1个token, 每个状态要检查token合法, 再由token内容决定下一步状态
-        nonlocal expr, p
+        nonlocal expr, p, lvs
         if s==0:
-            if expr[p] in '0123456789':
+            if expr[p][0] in '0123456789':
                 res = int(expr[p])
                 p += 1
                 return res, 0
