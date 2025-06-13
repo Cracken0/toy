@@ -13,6 +13,7 @@ def lv2dexp(lv): # lv-1 to lv
 
 
 def lv2exp(lv): # 0 to lv
+    # print( sum(map(lv2dexp, range(lv+1))))
     return sum(map(lv2dexp, range(lv+1)))
     # return sum([lv2dexp(i) for i in range(lv+1)])
 
@@ -70,7 +71,7 @@ def main():
         if line=='q':
             exit()
         lvs = expr2lvs(line)
-        print(f'  {lvs2exp(lvs)}, {lvs}')
+        print(f'  {lvs2exp(lvs)}, {sum(lvs)}, {lvs}')
 
 
 if __name__ == '__main__':
